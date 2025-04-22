@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { FileText, Briefcase } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -14,10 +15,19 @@ const HeroSection = () => {
             EduAssist helps educators find their perfect career match while enabling educational institutions to discover exceptional talent. The #1 platform for education professionals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button size="lg" className="bg-white text-blue-700 hover:bg-gray-100 text-base font-medium px-8 py-2 h-auto">
+            <Button 
+              size="lg" 
+              className="bg-white text-blue-700 hover:bg-gray-100 text-base font-medium px-8 py-6 h-auto flex items-center gap-2"
+            >
+              <Briefcase className="w-5 h-5" />
               For Job Seekers
             </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white text-base font-medium px-8 py-2 h-auto bg-blue-600 hover:bg-blue-500">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-2 border-white text-white text-base font-medium px-8 py-6 h-auto bg-blue-600 hover:bg-blue-500 flex items-center gap-2"
+            >
+              <FileText className="w-5 h-5" />
               For Employers
             </Button>
           </div>
