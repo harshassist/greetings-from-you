@@ -1,9 +1,6 @@
-
 import { Button } from "@/components/ui/button";
-
 const CallToActionSection = () => {
-  return (
-    <section className="py-16 bg-blue-600 text-white">
+  return <section className="py-16 bg-blue-600 text-white">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -16,14 +13,12 @@ const CallToActionSection = () => {
             <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
               Create Your Profile
             </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-blue-500">
+            <Button size="lg" variant="outline" className="border-2 border-white text-white bg-blue-800 hover:bg-blue-700">
               Browse Opportunities
             </Button>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default CallToActionSection;
