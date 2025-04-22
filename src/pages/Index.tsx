@@ -3,110 +3,100 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Search } from "lucide-react";
 import { Link } from "react-router-dom";
-
 const Index = () => {
   // Categories for job browsing
-  const categories = [
-    { name: "Teaching & Faculty", icon: "🎓" },
-    { name: "K-12 Education", icon: "📚" },
-    { name: "Administration", icon: "🏫" },
-    { name: "Finance", icon: "💼" },
-    { name: "Support", icon: "🤝" },
-  ];
+  const categories = [{
+    name: "Teaching & Faculty",
+    icon: "🎓"
+  }, {
+    name: "K-12 Education",
+    icon: "📚"
+  }, {
+    name: "Administration",
+    icon: "🏫"
+  }, {
+    name: "Finance",
+    icon: "💼"
+  }, {
+    name: "Support",
+    icon: "🤝"
+  }];
 
   // Featured jobs
-  const featuredJobs = [
-    {
-      title: "Science Teacher",
-      company: "Delhi Public School",
-      location: "New Delhi",
-      type: "Full-time",
-      salary: "₹45,000 - ₹60,000",
-      postedDays: 2,
-    },
-    {
-      title: "University Professor - Computer Science",
-      company: "Bangalore University",
-      location: "Bangalore",
-      type: "Full-time",
-      salary: "₹75,000 - ₹95,000",
-      postedDays: 5,
-    },
-    {
-      title: "School Principal",
-      company: "Green Valley International",
-      location: "Mumbai",
-      type: "Full-time",
-      salary: "₹95,000 - ₹1,20,000",
-      postedDays: 3,
-    },
-    {
-      title: "Educational Counselor",
-      company: "Career Pathways",
-      location: "Chennai",
-      type: "Part-time",
-      salary: "₹25,000 - ₹35,000",
-      postedDays: 1,
-    },
-    {
-      title: "School Coordinator",
-      company: "Vidya International",
-      location: "Hyderabad",
-      type: "Full-time", 
-      salary: "₹40,000 - ₹55,000",
-      postedDays: 4,
-    },
-    {
-      title: "E-Learning Developer",
-      company: "EdTech Solutions",
-      location: "Pune",
-      type: "Remote",
-      salary: "₹55,000 - ₹70,000",
-      postedDays: 2,
-    }
-  ];
+  const featuredJobs = [{
+    title: "Science Teacher",
+    company: "Delhi Public School",
+    location: "New Delhi",
+    type: "Full-time",
+    salary: "₹45,000 - ₹60,000",
+    postedDays: 2
+  }, {
+    title: "University Professor - Computer Science",
+    company: "Bangalore University",
+    location: "Bangalore",
+    type: "Full-time",
+    salary: "₹75,000 - ₹95,000",
+    postedDays: 5
+  }, {
+    title: "School Principal",
+    company: "Green Valley International",
+    location: "Mumbai",
+    type: "Full-time",
+    salary: "₹95,000 - ₹1,20,000",
+    postedDays: 3
+  }, {
+    title: "Educational Counselor",
+    company: "Career Pathways",
+    location: "Chennai",
+    type: "Part-time",
+    salary: "₹25,000 - ₹35,000",
+    postedDays: 1
+  }, {
+    title: "School Coordinator",
+    company: "Vidya International",
+    location: "Hyderabad",
+    type: "Full-time",
+    salary: "₹40,000 - ₹55,000",
+    postedDays: 4
+  }, {
+    title: "E-Learning Developer",
+    company: "EdTech Solutions",
+    location: "Pune",
+    type: "Remote",
+    salary: "₹55,000 - ₹70,000",
+    postedDays: 2
+  }];
 
   // How it works steps
-  const howItWorks = [
-    {
-      title: "Create Your Profile",
-      description: "Create an account and build your profile with your qualifications, experiences, and skills to stand out.",
-      icon: "1",
-    },
-    {
-      title: "Discover Opportunities",
-      description: "Explore job positions from educational institutions across the country that match your expertise and preferences.",
-      icon: "2",
-    },
-    {
-      title: "Apply & Connect",
-      description: "Apply to positions with a single click and connect directly with educational institutions hiring for roles.",
-      icon: "3",
-    },
-  ];
+  const howItWorks = [{
+    title: "Create Your Profile",
+    description: "Create an account and build your profile with your qualifications, experiences, and skills to stand out.",
+    icon: "1"
+  }, {
+    title: "Discover Opportunities",
+    description: "Explore job positions from educational institutions across the country that match your expertise and preferences.",
+    icon: "2"
+  }, {
+    title: "Apply & Connect",
+    description: "Apply to positions with a single click and connect directly with educational institutions hiring for roles.",
+    icon: "3"
+  }];
 
   // Why choose EduAssist features
-  const features = [
-    {
-      title: "Education Focused",
-      description: "A platform built solely for education jobs - schools, colleges, universities, and educational startups.",
-    },
-    {
-      title: "Quality Opportunities",
-      description: "Verified institutions and quality job listings curated specifically for the education sector.",
-    },
-    {
-      title: "Privacy & Security",
-      description: "Your data security is our priority. Your profile is only visible to employers you apply to.",
-    },
-    {
-      title: "Career Advancement",
-      description: "Access resources designed to enhance your resume, interview, and networking skills.",
-    },
-  ];
-
-  return (
-    <div className="flex flex-col min-h-screen">
+  const features = [{
+    title: "Education Focused",
+    description: "A platform built solely for education jobs - schools, colleges, universities, and educational startups."
+  }, {
+    title: "Quality Opportunities",
+    description: "Verified institutions and quality job listings curated specifically for the education sector."
+  }, {
+    title: "Privacy & Security",
+    description: "Your data security is our priority. Your profile is only visible to employers you apply to."
+  }, {
+    title: "Career Advancement",
+    description: "Access resources designed to enhance your resume, interview, and networking skills."
+  }];
+  return <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="bg-[#0000FF] text-white">
         <div className="container mx-auto px-4 py-20">
@@ -118,17 +108,10 @@ const Index = () => {
               EduAssist helps educators find their perfect career match while enabling educational institutions to discover exceptional talent. The #1 platform for education professionals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button 
-                size="lg" 
-                className="bg-white text-blue-700 hover:bg-gray-100 text-base font-medium px-8 py-2 h-auto"
-              >
+              <Button size="lg" className="bg-white text-blue-700 hover:bg-gray-100 text-base font-medium px-8 py-2 h-auto">
                 For Job Seekers
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-2 border-white text-white hover:bg-blue-600 text-base font-medium px-8 py-2 h-auto"
-              >
+              <Button size="lg" variant="outline" className="border-2 border-white text-white text-base font-medium px-8 py-2 h-auto bg-blue-600 hover:bg-blue-500">
                 For Employers
               </Button>
             </div>
@@ -137,17 +120,9 @@ const Index = () => {
             <div className="bg-blue-800/50 rounded-lg p-6 max-w-3xl mx-auto">
               <h3 className="text-white font-medium mb-4 text-xl">Find Your Next Opportunity</h3>
               <div className="flex flex-col md:flex-row gap-3">
-                <Input 
-                  placeholder="Job title, keywords, etc." 
-                  className="bg-white text-gray-900 border-0 h-11 text-base" 
-                />
-                <Input 
-                  placeholder="City, state, or remote" 
-                  className="bg-white text-gray-900 border-0 h-11 text-base" 
-                />
-                <Button 
-                  className="bg-purple-600 hover:bg-purple-700 text-white h-11 px-6 text-base font-medium"
-                >
+                <Input placeholder="Job title, keywords, etc." className="bg-white text-gray-900 border-0 h-11 text-base" />
+                <Input placeholder="City, state, or remote" className="bg-white text-gray-900 border-0 h-11 text-base" />
+                <Button className="bg-purple-600 hover:bg-purple-700 text-white h-11 px-6 text-base font-medium">
                   Search
                 </Button>
               </div>
@@ -179,14 +154,12 @@ const Index = () => {
           <p className="text-gray-500 text-center mb-10">Find opportunities in your specialized education field</p>
           
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 max-w-4xl mx-auto">
-            {categories.map((category, index) => (
-              <Link key={index} to={`/jobs?category=${category.name}`} className="group">
+            {categories.map((category, index) => <Link key={index} to={`/jobs?category=${category.name}`} className="group">
                 <div className="bg-white rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-all border border-gray-100">
                   <div className="text-3xl mb-3">{category.icon}</div>
                   <p className="text-sm text-gray-700 font-medium group-hover:text-blue-600">{category.name}</p>
                 </div>
-              </Link>
-            ))}
+              </Link>)}
           </div>
         </div>
       </section>
@@ -200,8 +173,7 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredJobs.map((job, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-md transition-shadow">
+            {featuredJobs.map((job, index) => <Card key={index} className="overflow-hidden hover:shadow-md transition-shadow">
                 <CardContent className="p-0">
                   <div className="p-4 bg-gray-50 flex items-center">
                     <div className="bg-blue-100 text-blue-600 rounded-md h-12 w-12 flex items-center justify-center text-lg font-bold mr-3">
@@ -224,8 +196,7 @@ const Index = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
           
           <div className="flex justify-center mt-8">
@@ -241,8 +212,7 @@ const Index = () => {
           <p className="text-gray-500 text-center mb-12">Finding the right job in education has never been easier</p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {howItWorks.map((step, index) => (
-              <div key={index} className="text-center">
+            {howItWorks.map((step, index) => <div key={index} className="text-center">
                 <div className="mx-auto mb-4 h-14 w-14 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 text-xl font-bold">
                   {step.icon}
                 </div>
@@ -253,8 +223,7 @@ const Index = () => {
                     Learn more
                   </Button>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -266,8 +235,7 @@ const Index = () => {
           <p className="text-gray-500 mb-10">We're more than just a job portal - we're a specialized platform built specifically for the education sector in India.</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
-            {features.map((feature, index) => (
-              <div key={index} className="flex gap-4">
+            {features.map((feature, index) => <div key={index} className="flex gap-4">
                 <div className="flex-shrink-0 mt-1">
                   <div className="h-6 w-6 rounded-full border-2 border-blue-600 flex items-center justify-center text-blue-600">✓</div>
                 </div>
@@ -275,8 +243,7 @@ const Index = () => {
                   <h3 className="text-lg font-medium mb-1">{feature.title}</h3>
                   <p className="text-gray-500">{feature.description}</p>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
           
           <div className="mt-8">
@@ -371,8 +338,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
