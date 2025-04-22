@@ -1,9 +1,12 @@
 
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Briefcase, List, Book, Mail } from "lucide-react";
+import { Briefcase, List, Book, Mail, Menu } from "lucide-react";
 
 const Navbar = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
       <nav className="container mx-auto px-4 py-3 flex items-center justify-between">
@@ -50,7 +53,7 @@ const Navbar = () => {
           className="md:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          <List className="w-6 h-6" />
+          <Menu className="w-6 h-6" />
         </button>
       </nav>
       
