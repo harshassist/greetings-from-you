@@ -1,5 +1,50 @@
-import { categories } from '@/types/categories';
-import CategoryNav from '@/components/CategoryNav/CategoryNav';
+
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "react-router-dom";
+
+// Placeholder data for sections that were missing
+const featuredJobs = [
+  {
+    title: "Math Teacher",
+    company: "ABC School",
+    location: "Remote",
+    type: "Full-time",
+    salary: "$50,000 - $70,000",
+    postedDays: 7
+  },
+  // Add more job listings as needed
+];
+
+const howItWorks = [
+  {
+    icon: "1",
+    title: "Create Profile",
+    description: "Build your professional profile"
+  },
+  {
+    icon: "2",
+    title: "Search Jobs",
+    description: "Find perfect education opportunities"
+  },
+  {
+    icon: "3",
+    title: "Apply & Connect",
+    description: "Apply and get hired"
+  }
+];
+
+const features = [
+  {
+    title: "Specialized for Education",
+    description: "Tailored platform for education professionals"
+  },
+  {
+    title: "Comprehensive Job Listings",
+    description: "Wide range of opportunities across India"
+  }
+];
 
 const Index = () => {
   return (
