@@ -40,7 +40,8 @@ const CategoriesSection = () => {
 
                     {/* Simple Subcategories Dropdown */}
                     {activeCategory === category.id && (
-                      <div className="absolute left-0 top-full z-50 w-[600px] bg-white shadow-lg rounded-lg p-4 mt-1">
+                      <div className="absolute left-0 z-50 w-64 md:w-[600px] bg-white shadow-lg rounded-lg p-4 mt-1"
+                           style={{ top: "calc(100% + 5px)" }}>
                         <div className="grid grid-cols-2 gap-2">
                           {category.subcategories.map((subcategory, subIndex) => (
                             <Link
