@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
@@ -109,58 +108,65 @@ const Index = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="bg-blue-700 text-white">
+      <section className="bg-[#0000FF] text-white min-h-[600px] flex items-center">
         <div className="container mx-auto px-4 py-16 md:py-24">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               Connecting Educators with Their Dream Opportunities
             </h1>
-            <p className="text-lg md:text-xl opacity-90 mb-8">
-              EduAssist helps educators find fulfilling careers with top educational institutions across India. 
-              Find your perfect teaching position or administrative role in the education sector.
+            <p className="text-lg md:text-xl opacity-90 mb-12 max-w-3xl mx-auto">
+              EduAssist helps educators find their perfect career match while enabling educational institutions to discover exceptional talent. The #1 platform for education professionals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button size="lg" className="bg-white text-blue-700 hover:bg-gray-100">
+              <Button 
+                size="lg" 
+                className="bg-white text-blue-700 hover:bg-gray-100 text-lg font-semibold px-8 py-6 h-auto"
+              >
                 For Job Seekers
               </Button>
-              <Button size="lg" variant="outline" className="text-white border-white hover:bg-blue-600">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-2 border-white text-white hover:bg-blue-600 text-lg font-semibold px-8 py-6 h-auto"
+              >
                 For Employers
               </Button>
             </div>
 
             {/* Search Bar */}
-            <div className="bg-white rounded-lg p-4 max-w-2xl mx-auto shadow-lg">
-              <h3 className="text-blue-700 font-medium mb-2">Find Your Next Opportunity</h3>
-              <div className="flex gap-2">
+            <div className="bg-[#0000dd] rounded-xl p-8 max-w-4xl mx-auto">
+              <h3 className="text-white font-medium mb-6 text-2xl">Find Your Next Opportunity</h3>
+              <div className="flex flex-col md:flex-row gap-4">
                 <Input 
-                  placeholder="Job title, keyword, or company" 
-                  className="bg-gray-50 border border-gray-200" 
+                  placeholder="Job title, keywords, etc." 
+                  className="bg-white text-gray-900 border-0 h-12 text-lg" 
                 />
                 <Input 
-                  placeholder="Location" 
-                  className="bg-gray-50 border border-gray-200" 
+                  placeholder="City, state, or remote" 
+                  className="bg-white text-gray-900 border-0 h-12 text-lg" 
                 />
-                <Button className="flex-shrink-0">
-                  <Search className="mr-2 h-4 w-4" />
+                <Button 
+                  className="bg-purple-600 hover:bg-purple-700 text-white h-12 px-8 text-lg font-semibold"
+                >
                   Search
                 </Button>
               </div>
             </div>
-          </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 max-w-3xl mx-auto mt-16 text-center">
-            <div>
-              <p className="text-2xl md:text-3xl font-bold">10,000+</p>
-              <p className="text-sm opacity-80">Active Job Listings</p>
-            </div>
-            <div>
-              <p className="text-2xl md:text-3xl font-bold">5,000+</p>
-              <p className="text-sm opacity-80">Educational Institutions</p>
-            </div>
-            <div>
-              <p className="text-2xl md:text-3xl font-bold">25,000+</p>
-              <p className="text-sm opacity-80">Educators Placed</p>
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-8 max-w-4xl mx-auto mt-16 text-center">
+              <div>
+                <p className="text-4xl md:text-5xl font-bold mb-2">10,000+</p>
+                <p className="text-lg opacity-80">Active Job Listings</p>
+              </div>
+              <div>
+                <p className="text-4xl md:text-5xl font-bold mb-2">5,000+</p>
+                <p className="text-lg opacity-80">Educational Institutions</p>
+              </div>
+              <div>
+                <p className="text-4xl md:text-5xl font-bold mb-2">25,000+</p>
+                <p className="text-lg opacity-80">Educators Placed</p>
+              </div>
             </div>
           </div>
         </div>
