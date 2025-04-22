@@ -1,102 +1,10 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent } from "@/components/ui/card";
-import { Search } from "lucide-react";
-import { Link } from "react-router-dom";
+import { categories } from '@/types/categories';
+import CategoryNav from '@/components/CategoryNav/CategoryNav';
+
 const Index = () => {
-  // Categories for job browsing
-  const categories = [{
-    name: "Teaching & Faculty",
-    icon: "🎓"
-  }, {
-    name: "K-12 Education",
-    icon: "📚"
-  }, {
-    name: "Administration",
-    icon: "🏫"
-  }, {
-    name: "Finance",
-    icon: "💼"
-  }, {
-    name: "Support",
-    icon: "🤝"
-  }];
-
-  // Featured jobs
-  const featuredJobs = [{
-    title: "Science Teacher",
-    company: "Delhi Public School",
-    location: "New Delhi",
-    type: "Full-time",
-    salary: "₹45,000 - ₹60,000",
-    postedDays: 2
-  }, {
-    title: "University Professor - Computer Science",
-    company: "Bangalore University",
-    location: "Bangalore",
-    type: "Full-time",
-    salary: "₹75,000 - ₹95,000",
-    postedDays: 5
-  }, {
-    title: "School Principal",
-    company: "Green Valley International",
-    location: "Mumbai",
-    type: "Full-time",
-    salary: "₹95,000 - ₹1,20,000",
-    postedDays: 3
-  }, {
-    title: "Educational Counselor",
-    company: "Career Pathways",
-    location: "Chennai",
-    type: "Part-time",
-    salary: "₹25,000 - ₹35,000",
-    postedDays: 1
-  }, {
-    title: "School Coordinator",
-    company: "Vidya International",
-    location: "Hyderabad",
-    type: "Full-time",
-    salary: "₹40,000 - ₹55,000",
-    postedDays: 4
-  }, {
-    title: "E-Learning Developer",
-    company: "EdTech Solutions",
-    location: "Pune",
-    type: "Remote",
-    salary: "₹55,000 - ₹70,000",
-    postedDays: 2
-  }];
-
-  // How it works steps
-  const howItWorks = [{
-    title: "Create Your Profile",
-    description: "Create an account and build your profile with your qualifications, experiences, and skills to stand out.",
-    icon: "1"
-  }, {
-    title: "Discover Opportunities",
-    description: "Explore job positions from educational institutions across the country that match your expertise and preferences.",
-    icon: "2"
-  }, {
-    title: "Apply & Connect",
-    description: "Apply to positions with a single click and connect directly with educational institutions hiring for roles.",
-    icon: "3"
-  }];
-
-  // Why choose EduAssist features
-  const features = [{
-    title: "Education Focused",
-    description: "A platform built solely for education jobs - schools, colleges, universities, and educational startups."
-  }, {
-    title: "Quality Opportunities",
-    description: "Verified institutions and quality job listings curated specifically for the education sector."
-  }, {
-    title: "Privacy & Security",
-    description: "Your data security is our priority. Your profile is only visible to employers you apply to."
-  }, {
-    title: "Career Advancement",
-    description: "Access resources designed to enhance your resume, interview, and networking skills."
-  }];
-  return <div className="flex flex-col min-h-screen">
+  return (
+    <div className="flex flex-col min-h-screen">
+      <CategoryNav categories={categories} />
       {/* Hero Section */}
       <section className="bg-[#0000FF] text-white">
         <div className="container mx-auto px-4 py-20">
@@ -338,6 +246,8 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
