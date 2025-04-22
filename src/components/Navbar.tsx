@@ -1,32 +1,48 @@
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Briefcase, List, Book, Mail } from "lucide-react";
 
 const Navbar = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-      <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <nav className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <span className="text-xl font-bold text-blue-700">EduAssist</span>
+          <span className="text-2xl font-bold text-purple-600">EduAssist</span>
         </Link>
         
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
-          <Link to="/jobs" className="text-gray-600 hover:text-blue-700">Browse Jobs</Link>
-          <Link to="/companies" className="text-gray-600 hover:text-blue-700">Companies</Link>
-          <Link to="/resources" className="text-gray-600 hover:text-blue-700">Resources</Link>
-          <Link to="/about" className="text-gray-600 hover:text-blue-700">About Us</Link>
+        {/* Main Navigation */}
+        <div className="hidden md:flex items-center space-x-6">
+          <Link to="/jobs" className="flex items-center gap-2 text-gray-600 hover:text-purple-600">
+            <Briefcase className="w-4 h-4" />
+            Find Jobs
+          </Link>
+          <Link to="/categories" className="flex items-center gap-2 text-gray-600 hover:text-purple-600">
+            <List className="w-4 h-4" />
+            Job Categories
+          </Link>
+          <Link to="/blog" className="flex items-center gap-2 text-gray-600 hover:text-purple-600">
+            <Book className="w-4 h-4" />
+            Blog
+          </Link>
+          <Link to="/contact" className="flex items-center gap-2 text-gray-600 hover:text-purple-600">
+            <Mail className="w-4 h-4" />
+            Contact Us
+          </Link>
         </div>
         
         {/* Authentication Buttons */}
-        <div className="hidden md:flex items-center space-x-4">
-          <Button variant="outline" className="border-gray-300">Log In</Button>
-          <Button className="bg-blue-600 hover:bg-blue-700">Sign Up</Button>
-          <Button variant="outline" className="border-gray-300">Post Job</Button>
+        <div className="hidden md:flex items-center space-x-3">
+          <Button variant="outline" className="border-purple-600 text-purple-600 hover:bg-purple-50">
+            Sign In
+          </Button>
+          <Button className="bg-purple-600 hover:bg-purple-700 text-white">
+            Sign Up
+          </Button>
+          <Button className="bg-purple-600 hover:bg-purple-700 text-white">
+            Post a Job
+          </Button>
         </div>
         
         {/* Mobile Menu Button */}
@@ -34,13 +50,7 @@ const Navbar = () => {
           className="md:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-            {mobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
+          <List className="w-6 h-6" />
         </button>
       </nav>
       
@@ -48,15 +58,33 @@ const Navbar = () => {
       {mobileMenuOpen && (
         <div className="md:hidden bg-white py-4 px-4 border-b border-gray-200">
           <div className="flex flex-col space-y-3">
-            <Link to="/jobs" className="text-gray-600 py-2 hover:text-blue-700">Browse Jobs</Link>
-            <Link to="/companies" className="text-gray-600 py-2 hover:text-blue-700">Companies</Link>
-            <Link to="/resources" className="text-gray-600 py-2 hover:text-blue-700">Resources</Link>
-            <Link to="/about" className="text-gray-600 py-2 hover:text-blue-700">About Us</Link>
+            <Link to="/jobs" className="flex items-center gap-2 text-gray-600 hover:text-purple-600 py-2">
+              <Briefcase className="w-4 h-4" />
+              Find Jobs
+            </Link>
+            <Link to="/categories" className="flex items-center gap-2 text-gray-600 hover:text-purple-600 py-2">
+              <List className="w-4 h-4" />
+              Job Categories
+            </Link>
+            <Link to="/blog" className="flex items-center gap-2 text-gray-600 hover:text-purple-600 py-2">
+              <Book className="w-4 h-4" />
+              Blog
+            </Link>
+            <Link to="/contact" className="flex items-center gap-2 text-gray-600 hover:text-purple-600 py-2">
+              <Mail className="w-4 h-4" />
+              Contact Us
+            </Link>
           </div>
           <div className="flex flex-col space-y-3 mt-4">
-            <Button variant="outline" className="border-gray-300 w-full justify-center">Log In</Button>
-            <Button className="bg-blue-600 hover:bg-blue-700 w-full justify-center">Sign Up</Button>
-            <Button variant="outline" className="border-gray-300 w-full justify-center">Post Job</Button>
+            <Button variant="outline" className="border-purple-600 text-purple-600 w-full justify-center">
+              Sign In
+            </Button>
+            <Button className="bg-purple-600 hover:bg-purple-700 text-white w-full justify-center">
+              Sign Up
+            </Button>
+            <Button className="bg-purple-600 hover:bg-purple-700 text-white w-full justify-center">
+              Post a Job
+            </Button>
           </div>
         </div>
       )}
