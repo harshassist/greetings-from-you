@@ -1,13 +1,48 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Search, Filter, MapPin, Clock, Briefcase } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Jobs = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
-  const [location, setLocation] = useState("");
+  const [locationTerm, setLocationTerm] = useState("");
+  const [activeFilters, setActiveFilters] = useState<string[]>([]);
+  
+  // Parse query parameters on component mount
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const queryParam = params.get("q");
+    const locParam = params.get("loc");
+    
+    if (queryParam) setSearchTerm(queryParam);
+    if (locParam) setLocationTerm(locParam);
+  }, [location.search]);
+  
+  // Handle search form submission
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Update URL with search parameters
+    const params = new URLSearchParams();
+    if (searchTerm) params.append("q", searchTerm);
+    if (locationTerm) params.append("loc", locationTerm);
+    
+    navigate(`/jobs?${params.toString()}`);
+  };
+  
+  // Handle filter toggle
+  const toggleFilter = (filter: string) => {
+    setActiveFilters(prev => 
+      prev.includes(filter) 
+        ? prev.filter(f => f !== filter)
+        : [...prev, filter]
+    );
+  };
   
   // Sample job listings
   const jobs = [
@@ -109,12 +144,19 @@ const Jobs = () => {
     },
   ];
 
-  // Filter jobs based on search term and location
+  // Filter jobs based on search term, location, and filters
   const filteredJobs = jobs.filter(job => {
-    return (
-      (searchTerm === "" || job.title.toLowerCase().includes(searchTerm.toLowerCase()) || job.company.toLowerCase().includes(searchTerm.toLowerCase())) &&
-      (location === "" || job.location.toLowerCase().includes(location.toLowerCase()))
-    );
+    const matchesSearch = searchTerm === "" || 
+      job.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+      job.company.toLowerCase().includes(searchTerm.toLowerCase());
+      
+    const matchesLocation = locationTerm === "" || 
+      job.location.toLowerCase().includes(locationTerm.toLowerCase());
+      
+    const matchesType = activeFilters.length === 0 || 
+      (job.type && activeFilters.some(filter => job.type.toLowerCase().includes(filter.toLowerCase())));
+    
+    return matchesSearch && matchesLocation && matchesType;
   });
 
   return (
@@ -124,7 +166,7 @@ const Jobs = () => {
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">Find Your Perfect Education Job</h1>
           
           {/* Search Filters */}
-          <div className="bg-white rounded-lg p-4 shadow-lg">
+          <form onSubmit={handleSearch} className="bg-white rounded-lg p-4 shadow-lg">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="relative">
                 <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
@@ -140,11 +182,11 @@ const Jobs = () => {
                 <Input
                   placeholder="Location"
                   className="pl-10"
-                  value={location}
-                  onChange={(e) => setLocation(e.target.value)}
+                  value={locationTerm}
+                  onChange={(e) => setLocationTerm(e.target.value)}
                 />
               </div>
-              <Button className="bg-blue-600 hover:bg-blue-700">
+              <Button type="submit" className="bg-blue-600 hover:bg-blue-700">
                 <Search className="mr-2 h-4 w-4" />
                 Search Jobs
               </Button>
@@ -156,14 +198,32 @@ const Jobs = () => {
                 <span className="text-sm text-gray-600">Filters:</span>
               </div>
               <div className="flex flex-wrap gap-2">
-                <Button variant="outline" size="sm">Full-time</Button>
-                <Button variant="outline" size="sm">Part-time</Button>
-                <Button variant="outline" size="sm">Remote</Button>
+                <Button 
+                  variant={activeFilters.includes("Full-time") ? "default" : "outline"} 
+                  size="sm"
+                  onClick={() => toggleFilter("Full-time")}
+                >
+                  Full-time
+                </Button>
+                <Button 
+                  variant={activeFilters.includes("Part-time") ? "default" : "outline"} 
+                  size="sm"
+                  onClick={() => toggleFilter("Part-time")}
+                >
+                  Part-time
+                </Button>
+                <Button 
+                  variant={activeFilters.includes("Remote") ? "default" : "outline"} 
+                  size="sm"
+                  onClick={() => toggleFilter("Remote")}
+                >
+                  Remote
+                </Button>
                 <Button variant="outline" size="sm">Salary Range</Button>
                 <Button variant="outline" size="sm">Experience Level</Button>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
       
@@ -235,8 +295,14 @@ const Jobs = () => {
                     </div>
                     
                     <div className="space-y-3">
-                      <Button className="w-full">Apply Now</Button>
-                      <Button variant="outline" className="w-full">Save Job</Button>
+                      <Button className="w-full" onClick={() => alert("Application form will be implemented soon!")}>Apply Now</Button>
+                      <Button 
+                        variant="outline" 
+                        className="w-full"
+                        onClick={() => alert("Job saved to your profile!")}
+                      >
+                        Save Job
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -248,15 +314,15 @@ const Jobs = () => {
         {/* Pagination */}
         <div className="flex justify-center mt-12">
           <nav className="inline-flex rounded-md shadow">
-            <a href="#" className="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">Previous</a>
-            <a href="#" className="px-3 py-2 border-t border-b border-gray-300 bg-white text-sm font-medium text-blue-600 hover:bg-gray-50">1</a>
-            <a href="#" className="px-3 py-2 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">2</a>
-            <a href="#" className="px-3 py-2 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">3</a>
-            <span className="px-3 py-2 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-500">...</span>
-            <a href="#" className="px-3 py-2 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">8</a>
-            <a href="#" className="px-3 py-2 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">9</a>
-            <a href="#" className="px-3 py-2 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">10</a>
-            <a href="#" className="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">Next</a>
+            <Button variant="outline" size="sm" className="rounded-l-md">Previous</Button>
+            <Button variant="outline" size="sm" className="bg-blue-50 border-blue-300">1</Button>
+            <Button variant="outline" size="sm">2</Button>
+            <Button variant="outline" size="sm">3</Button>
+            <Button variant="outline" size="sm" disabled>...</Button>
+            <Button variant="outline" size="sm">8</Button>
+            <Button variant="outline" size="sm">9</Button>
+            <Button variant="outline" size="sm">10</Button>
+            <Button variant="outline" size="sm" className="rounded-r-md">Next</Button>
           </nav>
         </div>
       </div>
